@@ -10,6 +10,8 @@ import { Wrestler } from './models/wrestler';
 export class AppComponent {
   title = 'wrestling-tournament';
   @ViewChild('input') input!: ElementRef<HTMLTextAreaElement>;
+
+  // Default sample input
   sampleInput = [
     {
       name: "Wrestler A",
@@ -54,6 +56,10 @@ export class AppComponent {
   get wrestlers() { return this.tournamentService.wrestlers; }
   get messages() { return this.tournamentService.messages; }
 
+  /**
+   * Starts a new tournament. Checks json validity of input string.
+   * @param wrestlersInput The string in the input textbox.
+   */
   startTournament(wrestlersInput: string) {
     try {
       let wrestlers: Wrestler[] = JSON.parse(wrestlersInput);

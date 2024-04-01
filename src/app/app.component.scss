@@ -1,6 +1,25 @@
-$text: #000;
-$bg: #fff;
-$accent: LightSteelBlue;
+$text: #fff;
+$bg: #04071e;
+$accent: #1aaded;
+
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: none;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba($text, 0.4);
+  border-radius: 4px;
+
+  &:hover {
+    background: rgba($text, 0.7);
+  }
+  &:active {
+    background: rgba($text, 1);
+  }
+}
 
 .container {
   height: 100vh;
@@ -8,9 +27,9 @@ $accent: LightSteelBlue;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  align-items: flex-start;
-  padding: 20px;
-  gap: 20px;
+  align-items: center;
+  padding: 16px;
+  gap: 16px;
 }
 
 .row {
@@ -20,7 +39,10 @@ $accent: LightSteelBlue;
   flex-direction: row;
   justify-content: flex-start;
   align-items: flex-start;
-  gap: 20px;
+  gap: 16px;
+  background: rgba($text, 0.1);
+  border-radius: 8px;
+  padding: 16px;
 }
 
 .create {
@@ -32,13 +54,12 @@ $accent: LightSteelBlue;
 
   .textarea {
     height: 100%;
-    border-radius: 10px;
-    margin: 10px 0;
+    margin: 8px 0;
     display: flex;
     flex-direction: column;
-    border-radius: 10px;
     overflow: hidden;
     border: 2px solid rgba($text, 0.2);
+    border-radius: 6px;
 
     textarea {
       height: 100%;
