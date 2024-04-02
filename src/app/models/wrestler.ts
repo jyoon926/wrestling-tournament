@@ -8,13 +8,14 @@ export class Wrestler {
   private _baseHealth: number;
   private _health: number;
   private _moves: Move[];
-  private _isWinner = false;
+  private _isWinner: Boolean;
 
   constructor(wrestler: WrestlerInput) {
     this._name = wrestler.name;
     this._baseHealth = wrestler.health;
     this._health = wrestler.health;
     this._moves = wrestler.moves;
+    this._isWinner = false;
   }
 
   get name() { return this._name; }

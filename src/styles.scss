@@ -14,7 +14,7 @@ html {
   color: $text;
   background-color: $bg;
   scroll-behavior: smooth;
-  overflow-x: hidden;
+  overflow-y: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;

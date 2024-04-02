@@ -11,7 +11,7 @@
     </div>
     <div class="wrestler winner" *ngIf="match.winner" [ngClass]="{'final-winner': match.winner.isWinner}">{{match.winner.name}}</div>
     <div class="wrestler" *ngIf="!match.winner"><div class="loading"></div></div>
-    <div class="winner-text" *ngIf="match.winner.isWinner">
+    <div class="winner-text" *ngIf="match.winner && match.winner.isWinner">
       <canvas width="600" height="600" id="confetti-canvas"></canvas>
       WINNER!
     </div>
