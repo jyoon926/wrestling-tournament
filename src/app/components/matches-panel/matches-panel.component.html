@@ -1,0 +1,19 @@
+<h5>Matches Viewer</h5>
+<div class="matches">
+  <div *ngFor="let match of matches" class="match">
+    <div class="wrestlers">
+      <div class="wrestler"><span>{{match.wrestler1.name}}</span><span class="hp">{{match.wrestler1.health}} ♥</span></div>
+      <div class="wrestler"><span>{{match.wrestler2.name}}</span><span class="hp">{{match.wrestler2.health}} ♥</span></div>
+    </div>
+    <div class="lines">
+      <div class="split"></div>
+      <div class="horizontal"></div>
+    </div>
+    <div class="wrestler winner" *ngIf="match.winner" [ngClass]="{'final-winner': match.winner.isWinner}">{{match.winner.name}}</div>
+    <div class="wrestler" *ngIf="!match.winner"><div class="loading"></div></div>
+    <div class="winner-text" *ngIf="match.winner.isWinner">
+      <canvas width="600" height="600" id="confetti-canvas"></canvas>
+      WINNER!
+    </div>
+  </div>
+</div>

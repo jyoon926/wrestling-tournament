@@ -1,0 +1,25 @@
+@import '../../app.component.scss';
+
+:host {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.messages {
+  background: rgba($text, 0.05);
+  border-radius: 8px;
+  padding: 16px;
+  overflow: auto;
+  width: 500px;
+  font-family: monospace;
+  line-height: 1.1;
+  height: calc(100vh - 120px);
+
+  p {
+    margin-bottom: 8px;
+  }
+}

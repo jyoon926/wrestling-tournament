@@ -10,7 +10,7 @@
 html {
   margin: 0;
   font-family: 'neue-haas-grotesk-text', serif;
-  font-size: 14px;
+  font-size: 13px;
   color: $text;
   background-color: $bg;
   scroll-behavior: smooth;
@@ -92,7 +92,7 @@ p {
 input, textarea {
   all: unset;
   padding: 6px 8px;
-  background: rgba($text, 0.1);
+  background: rgba($text, 0.05);
   width: 50px;
 }
 
@@ -106,4 +106,9 @@ a {
 button {
   all: unset;
   cursor: pointer;
+
+  &:disabled {
+    opacity: 0.4;
+    pointer-events: none;
+  }
 }

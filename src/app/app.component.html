@@ -3,20 +3,12 @@
   <h4 class="title">🏆 Wrestling Tournament Simulator</h4>
 
   <div class="row">
-  
-    <div class="create">
-      <h5>Input</h5>
-      <div class="textarea">
-        <textarea type="text" #input>{{sampleInput | json}}</textarea>
-      </div>
-      <button class="button" (click)="startTournament(input.value)">Start Tournament</button>
-    </div>
 
-    <div class="tournament">
-      <div class="messages">
-        <p *ngFor="let message of messages">{{message}}</p>
-      </div>
-    </div>
+    <app-input-panel></app-input-panel>
+
+    <app-output-panel></app-output-panel>
+
+    <app-matches-panel></app-matches-panel>
   
   </div>
 

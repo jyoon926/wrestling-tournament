@@ -8,6 +8,7 @@ export class Wrestler {
   private _baseHealth: number;
   private _health: number;
   private _moves: Move[];
+  private _isWinner = false;
 
   constructor(wrestler: WrestlerInput) {
     this._name = wrestler.name;
@@ -17,12 +18,10 @@ export class Wrestler {
   }
 
   get name() { return this._name; }
-
   get baseHealth() { return this._baseHealth; }
-
   get health() { return this._health; }
-
   get moves() { return this._moves; }
+  get isWinner() { return this._isWinner; }
 
   /**
    * Damages the wrestler based on the move.
@@ -53,5 +52,24 @@ export class Wrestler {
    */
   resetHealth(): void {
     this._health = this._baseHealth;
+  }
+
+  /**
+   * Sets this wrestler as winner.
+   */
+  setWinner(): void {
+    this._isWinner = true;
+  }
+
+  /**
+   * Copies the current wrestler object.
+   * @returns A copied wrestler with reset health.
+   */
+  copy() {
+    return new Wrestler({
+      name: this._name,
+      health: this._baseHealth,
+      moves: this._moves
+    })
   }
 }

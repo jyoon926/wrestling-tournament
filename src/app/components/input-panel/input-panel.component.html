@@ -1,0 +1,8 @@
+<h5>Input</h5>
+<div class="textarea">
+  <textarea type="text" #input>{{sampleInput | json}}</textarea>
+</div>
+<div class="button-row">
+  <button class="button" (click)="startTournament(input.value)" [disabled]="running">Start Tournament</button>
+  <div class="loading" *ngIf="running"></div>
+</div>
