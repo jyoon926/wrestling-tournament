@@ -1,4 +1,4 @@
-import { Move, MoveType, WrestlerInput } from "./wrestler-input";
+import { Move, WrestlerInput } from "./wrestler-input";
 
 /**
  * Represents a wrestler.
@@ -30,7 +30,7 @@ export class Wrestler {
    */
   damage(move: Move): number {
     // Finisher moves have 50% chance of failing if health is above 45
-    if (this._health > 45 && move.type == MoveType.finisher && Math.random() > 0.5) {
+    if (this._health > 45 && move.type == "finisher" && Math.random() > 0.5) {
       return 0;
     }
     let damage = Math.min(move.damage, this._health);

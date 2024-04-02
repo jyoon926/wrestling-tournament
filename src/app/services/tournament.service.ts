@@ -23,7 +23,7 @@ export class TournamentService {
    * Starts a new tournament.
    * @param inputWrestlers An array of WresterInput objects.
    */
-  async startTournament(inputWrestlers: WrestlerInput[]) {
+  public async startTournament(inputWrestlers: WrestlerInput[]) {
     inputWrestlers = inputWrestlers.filter(w => Object.keys(w).length > 0);
 
     // Check array length
@@ -37,7 +37,7 @@ export class TournamentService {
     inputWrestlers.forEach(inputWrestler => {
       this._wrestlers.push(new Wrestler(inputWrestler));
     });
-
+    
     // Run tournament
     this._running = true;
     let winner = await this.runTournament();
@@ -50,8 +50,9 @@ export class TournamentService {
    * Simulates a tournament and returns the winner.
    * @returns The winning wrestler.
    */
-  async runTournament(): Promise<Wrestler> {
-    let queue = this._wrestlers;
+  private async runTournament(): Promise<Wrestler> {
+    let queue: Wrestler[] = [];
+    this.wrestlers.forEach(w => queue.push(w));
     let matches = 1;
     while (queue.length > 1) {
       if (queue.length >= 2) {
@@ -62,7 +63,7 @@ export class TournamentService {
         this._messages.push("-----");
       }
     }
-    let winner = queue.pop()!
+    let winner = queue.pop()!;
     winner.setWinner();
     return winner;
   }
@@ -74,7 +75,7 @@ export class TournamentService {
    * @param matchNumber The number of the match.
    * @returns The winning wrester.
    */
-  async runMatch(wrestler1: Wrestler, wrestler2: Wrestler, matchNumber: number): Promise<Wrestler> {
+  private async runMatch(wrestler1: Wrestler, wrestler2: Wrestler, matchNumber: number): Promise<Wrestler> {
     let round = 1;
     let winner = wrestler1;
 
@@ -131,14 +132,14 @@ export class TournamentService {
    * Asynchronous delay function.
    * @param ms Delay length in seconds.
    */
-  delay(s: number) {
+  private delay(s: number) {
     return new Promise( resolve => setTimeout(resolve, s * 1000) );
   }
 
   /**
    * Show confetti if confetti-canvas component exists.
    */
-  async celebrate() {
+  public async celebrate() {
     await this.delay(0.1);
     let canvas = document.getElementById("confetti-canvas");
     if (canvas) {

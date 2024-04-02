@@ -1,11 +1,7 @@
-export enum MoveType {
-  signature, finisher
-}
-
 export interface Move {
   name: string,
   damage: number,
-  type: MoveType
+  type: string
 }
 
 export interface WrestlerInput {
