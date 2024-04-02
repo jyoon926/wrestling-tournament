@@ -7,8 +7,7 @@ import { TournamentService } from 'src/app/services/tournament.service';
   styleUrls: ['./matches-panel.component.scss']
 })
 export class MatchesPanelComponent {
-
   constructor(private tournamentService: TournamentService) {}
-  
+
   get matches() { return this.tournamentService.matches; }
 }

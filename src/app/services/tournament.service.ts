@@ -135,8 +135,11 @@ export class TournamentService {
     return new Promise( resolve => setTimeout(resolve, s * 1000) );
   }
 
+  /**
+   * Show confetti if confetti-canvas component exists.
+   */
   async celebrate() {
-    await this.delay(0.05);
+    await this.delay(0.1);
     let canvas = document.getElementById("confetti-canvas");
     if (canvas) {
       let confettiBtn = confetti.create(canvas as HTMLCanvasElement);

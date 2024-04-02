@@ -7,7 +7,6 @@ import { TournamentService } from 'src/app/services/tournament.service';
   styleUrls: ['./ouput-panel.component.scss']
 })
 export class OutputPanelComponent {
-
   constructor(private tournamentService: TournamentService) {}
   
   get matches() { return this.tournamentService.matches; }
